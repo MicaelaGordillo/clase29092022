@@ -145,6 +145,12 @@ document.addEventListener('DOMContentLoaded', () => {
     freeze()
   }
 
+
+  // La funcion clearInterval() detiene el tiempo y la ejecución de la función moveDown
+  // y pasa el timerId a 0, en caso de que este tenga un valor. 
+  // Caso contrario se quiere reanudar 
+  // el juego, para esto se establece un intervalo de 1seg para que se ejecute la función moveDown
+  // y que los bloques desciendan.
   startBtn.addEventListener('click', () => {
     if (timerId) {
       clearInterval(timerId)
@@ -179,7 +185,9 @@ document.addEventListener('DOMContentLoaded', () => {
     draw()
   }
 
-  //freeze the shape
+  // Esta función se encarga de determinar cuando un nuevo bloque debe caer en el caso de que
+  // el bloque actual choque con el limite inferior (block3) o cuando choque con otro bloque (block2).
+  // Por defecto se adiciona la clase 'block2' (classList.add()) al bloque actual para descartarlo y empezar con un nuevo bloque.
   function freeze() {
     // if block has settled
     if (current.some(index => squares[currentPosition + index + width].classList.contains('block3') || squares[currentPosition + index + width].classList.contains('block2'))) {
@@ -198,7 +206,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   freeze()
 
-  //Rotate the Tetromino
+  // Esta función se encarga de la rotación de los bloques, la posicion actual se maneja en
+  // 'currentRotation' que va incrementando cada vez que se llama a la función, esto hasta recorrer todas las
+  // posiciones asignadas en arreglo 'theTetrominoes', si es que se llega al límite regresa a su posición inicial.
   function rotate() {
     undraw()
     currentRotation++
@@ -209,7 +219,8 @@ document.addEventListener('DOMContentLoaded', () => {
     draw()
   }
 
-  //Game Over
+  // Si es que el bloque actual contiene la clase 'block2' significa que llegó al límite
+  // en ese caso, el texto del score es actualizado a END y se libera el temporizador.
   function gameOver() {
     if (current.some(index => squares[currentPosition + index].classList.contains('block2'))) {
       scoreDisplay.innerHTML = 'end'
@@ -263,7 +274,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  //
+  //Despliega el menu lateral, mostrando las reglas del juego.
+  //Asigna un display none para ocultar, y flex para visualizar.
   hamburgerBtn.addEventListener('click', () => {
     menu.style.display = 'flex'
   })
