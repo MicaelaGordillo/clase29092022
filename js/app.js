@@ -1,3 +1,7 @@
+//El evento DOMContentLoaded se utilizan para comprobar cuando una página web se ha cargado por completo.
+//se ejecuta una vez que se carga el documento HTML básico y se ha realizado su análisis. 
+//Este evento no espera a que se complete la carga de complementos como hojas de estilo, 
+//sub-marcos e imágenes / fotografías.
 document.addEventListener('DOMContentLoaded', () => {
   // TODO: we can also get the grid size from user
   const GRID_WIDTH = 10
@@ -40,8 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
       grid.appendChild(gridElement)
     }
 
-    //40 se crea la base del juego donde se asigna una clase y un valor al nuevo objeto creado, para poder diferenciarlo se utilizan clases en los
-    //divs block, block2, block3
+    //40 se crea la base del juego donde se asigna una clase y un valor al nuevo objeto creado, para poder diferenciarlo 
+    //se utilizan clases en los divs block, block2, block3
     for (let i = 0; i < GRID_WIDTH; i++) {
       let gridElement = document.createElement("div")
       gridElement.setAttribute("class", "block3")
@@ -142,9 +146,9 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  //el movimiento hacia abajo significa que avanzará inmediatamente el los div a una posición hacia abajo lo hace mediante la relación de undraw(), posición hacia abajo para //todos los divs actuales modificando la posicion del div con una posicion hacia abajo
-
-
+  //el movimiento hacia abajo significa que avanzará inmediatamente el los div a una posición hacia abajo lo hace mediante la 
+  //relación de undraw(), posición hacia abajo para //todos los divs actuales modificando la posicion del div con una posicion 
+  //hacia abajo
   function moveDown() {
     undraw()
     currentPosition = currentPosition += width
@@ -170,11 +174,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
 
-  // el movimiento de derecha se verifica mediante la tecla de flecha de derecha del teclado con codigo 39, primero lo elimina las clases a los divs de clase 'block' con la funcion undraw()
+  // el movimiento de derecha se verifica mediante la tecla de flecha de derecha del teclado con codigo 39, primero lo elimina 
+  //las clases a los divs de clase 'block' con la funcion undraw()
 //- se pregunta si el componente de tetromino se encuentra en el borde de la derecha
 //- por si: no realiza ningun movimiento
 //- por no: le resta una unidad a la posicion actual
-//- tambien se pregunta si el bloque de bajao de alguno de los bloques inferiores de tetromino actuales tiene la clase 'block2' que es la clase en donde se encuentra un bloque ya posionado, si ese es el //caso, se procede a obtener un nuevo tetromino que se lo obtiene de una lista y el index se aumenta en 1 para encontrar la siguiente forma que se dibujará
+//- tambien se pregunta si el bloque de bajao de alguno de los bloques inferiores de tetromino actuales tiene la clase 'block2' 
+//que es la clase en donde se encuentra un bloque ya posionado, si ese es el //caso, se procede a obtener un nuevo tetromino 
+//que se lo obtiene de una lista y el index se aumenta en 1 para encontrar la siguiente forma que se dibujará
 //- se dibuja la figura ya sea un tetromino nuevo o sea el mismo tetromino con la funcion draw()
 
   //move left and prevent collisions with shapes moving left
@@ -188,11 +195,14 @@ document.addEventListener('DOMContentLoaded', () => {
     draw()
   }
 
-// el movimiento de izquierda se verifica mediante la tecla de flecha de izquierda del teclado con codigo 37, primero lo elimina las clases a los divs con la funcion undraw
+// el movimiento de izquierda se verifica mediante la tecla de flecha de izquierda del teclado con codigo 37, 
+// primero lo elimina las clases a los divs con la funcion undraw
 //- se pregunta si el componente de tetromino se encuentra en el borde de la izquierda
 //- por si: no realiza ningun movimiento
 //- por no: le resta una unidad a la posicion actual
-//- tambien se pregunta si el bloque de de alguno de los bloques actuales tiene la clase block2 que es la clase en donde se encuentra un bloque ya posionada, si ese es el //caso, se procede a obtener un nuevo tetromino que se lo obtiene de una lista y el index se aumenta en 1 para encontrar la siguiente forma que se dibujará
+//- tambien se pregunta si el bloque de de alguno de los bloques actuales tiene la clase block2 que es la 
+//clase en donde se encuentra un bloque ya posionada, si ese es el //caso, se procede a obtener un nuevo tetromino 
+//que se lo obtiene de una lista y el index se aumenta en 1 para encontrar la siguiente forma que se dibujará
 //- se dibuja la figura ya sea un tetromino nuevo o sea el mismo tetromino con la funcion draw()
 
 
@@ -250,7 +260,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  //Se obtiene los valores del html y los divs con clases ".previous-grid div" para quitarles la propiedad de bloque y quitarle el fondo
+  //Se obtiene los valores del html y los divs con clases ".previous-grid div" para quitarles la propiedad de bloque 
+  //y quitarle el fondo
   const displayWidth = 4
   const displaySquares = document.querySelectorAll('.previous-grid div')
   let displayIndex = 0
