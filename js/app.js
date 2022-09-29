@@ -115,15 +115,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //move the Tetromino moveDown
   let currentPosition = 4
-  //draw the shape
+  //Draw() esta función permite crear/dibujar la forma/objeto/figura.
+  //Es llamada cuando:
+  //- Una nueva figura aparece en la parte superior de la pantalla. 
+  //- Cuando el jugador quiere que la figura se mueva hacia abajo, izquierda 
+  //y derecha (la vuelve a crear en la nueva posición).
   function draw() {
     current.forEach(index => {
       squares[currentPosition + index].classList.add('block')
       squares[currentPosition + index].style.backgroundImage = colors[random]
     })
   }
-
-  //undraw the shape
+  //Undraw() esta función permite eliminar la forma/objeto/figura de la posicion actual.
+  //Es llamada cuando el jugador quiere que la figura se mueva hacia abajo, 
+  //izquierda y derecha (la elimina para que se la vuelva a crear en la nueva posición).
+  //Antes de llamar a la funcion draw().
   function undraw() {
     current.forEach(index => {
       squares[currentPosition + index].classList.remove('block')
@@ -257,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  //Styling eventListeners
+  //
   hamburgerBtn.addEventListener('click', () => {
     menu.style.display = 'flex'
   })

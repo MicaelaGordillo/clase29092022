@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
+<!--Dentro de la etiqueta <head> va informacion que mayormente el usuario no puede ver.-->
 <head>
+  <!--Metadatos-->
   <meta charset="utf-8">
+  <!--<title> Título de la página (se verá en el navegador que se esté usando).-->
   <title>Tetris!</title>
+  <!--Link al archova .js / JavaScript-->
   <script src="js/app.js" charset="utf-8"></script>
+  <!--La siguiente etiqueta permite relacionar el archivo htlm con el css-->
   <link rel="stylesheet" href="css/style.css">
+  <!--Fonts-->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap" rel="stylesheet">
 </head>
-
+<!--Dentro de la etiqueta <body> va a contenerse todo lo que es el cuerpo de lo que es nuestro html (el usuario lo va a ver).-->
 <body>
   <div class="menu-wrap">
+    <!--Boton superior izquierdo-->
     <input type="checkbox" class="toggler">
     <div class="hamburger">
       <div></div>
     </div>
+    <!--Mensaje inicial / Reglas-->
     <div class="menu">
       <div class="menu-content">
         <h2 class="t-ucase">rules</h2>
@@ -25,25 +32,34 @@
       </div>
     </div>
   </div>
+
+  <!--Titulo de la interfaz-->
   <header>
     <h1 class="fw-300 t-ucase">Welcome <br><span class="fw-400 t-wide t-big t-ucase">to tetris</span></h1>
   </header>
+
+  <!--Área de juego-->
   <main class="game-area">
+    <!--Donde se crean las figuras/objetos-->
     <div class="game">
       <div class="grid"></div>
     </div>
+    <!--Controladores-->
     <section>
       <div class="display">
+        <!--Controlador de Score-->
         <h1 class="score fw-400 t-ucase">Your Score <br> <span class="score-display t-ucase fw-300">0</span></h1>
+        <!--Vista de la siguiente figura-->
         <div class="previous-shape">
           <div class="previous-grid"></div>
         </div>
+        <!--Controlador de lineas hechas-->
         <h2 class="lines-display fw-400 t-ucase">Lines:<span class="lines-score">0</span></h2>
       </div>
+      <!--Boton empezar y pausa-->
       <button class="button t-ucase" href="#">Start / Pause</button>
       <small class='footer t-ucase'>made with love 2019</small>
     </section>
   </main>
 </body>
-
 </html>
