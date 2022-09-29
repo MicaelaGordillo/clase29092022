@@ -29,6 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
   ]
 
 
+  //32 Se cuenta con un grid en HTML en el cual con los valores ya determinados se crea en un un conjunto de divs
+  //se obtiene del HTML el bloque div con document.getElementById()
+
   function createGrid() {
     // the main grid
     let grid = document.querySelector(".grid")
@@ -37,7 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
       grid.appendChild(gridElement)
     }
 
-    // set base of grid
+    //40 se crea la base del juego donde se asigna una clase y un valor al nuevo objeto creado, para poder diferenciarlo se utilizan clases en los
+    //divs block, block2, block3
     for (let i = 0; i < GRID_WIDTH; i++) {
       let gridElement = document.createElement("div")
       gridElement.setAttribute("class", "block3")
@@ -70,7 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // the classical behavior is to speed up the block if down button is kept pressed so doing that
   document.addEventListener('keydown', control)
 
-  //The Tetrominoes
+  //73 Es la composicion de los bloques, se tiene la posicion del los cuatro puntos del grid para poder dibujarlo
+
   const lTetromino = [
     [1, GRID_WIDTH + 1, GRID_WIDTH * 2 + 1, 2],
     [GRID_WIDTH, GRID_WIDTH + 1, GRID_WIDTH + 2, GRID_WIDTH * 2 + 2],
@@ -228,11 +233,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  //show previous tetromino in scoreDisplay
+  //Se obtiene los valores del html y los divs con clases ".previous-grid div" para quitarles la propiedad de bloque y quitarle el fondo
   const displayWidth = 4
   const displaySquares = document.querySelectorAll('.previous-grid div')
   let displayIndex = 0
-
+  
   const smallTetrominoes = [
     [1, displayWidth + 1, displayWidth * 2 + 1, 2], /* lTetromino */
     [0, displayWidth, displayWidth + 1, displayWidth * 2 + 1], /* zTetromino */
@@ -252,7 +257,10 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  //Add score
+ //Para el escore se obtiene del documento HTML los bloques y se realiza la preguna de si toda la row
+// forma parte de block2 si es asi se agrega 10 puntos y una linea a la puntuacionn
+// tambien se realiza una eliminacion de la clase block de los elementos que cumplen con la condicion
+
   function addScore() {
     for (currentIndex = 0; currentIndex < GRID_SIZE; currentIndex += GRID_WIDTH) {
       const row = [currentIndex, currentIndex + 1, currentIndex + 2, currentIndex + 3, currentIndex + 4, currentIndex + 5, currentIndex + 6, currentIndex + 7, currentIndex + 8, currentIndex + 9]
