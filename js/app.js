@@ -142,7 +142,9 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  //move down on loop
+  //el movimiento hacia abajo significa que avanzará inmediatamente el los div a una posición hacia abajo lo hace mediante la relación de undraw(), posición hacia abajo para //todos los divs actuales modificando la posicion del div con una posicion hacia abajo
+
+
   function moveDown() {
     undraw()
     currentPosition = currentPosition += width
@@ -168,6 +170,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
 
+  // el movimiento de derecha se verifica mediante la tecla de flecha de derecha del teclado con codigo 39, primero lo elimina las clases a los divs de clase 'block' con la funcion undraw()
+//- se pregunta si el componente de tetromino se encuentra en el borde de la derecha
+//- por si: no realiza ningun movimiento
+//- por no: le resta una unidad a la posicion actual
+//- tambien se pregunta si el bloque de bajao de alguno de los bloques inferiores de tetromino actuales tiene la clase 'block2' que es la clase en donde se encuentra un bloque ya posionado, si ese es el //caso, se procede a obtener un nuevo tetromino que se lo obtiene de una lista y el index se aumenta en 1 para encontrar la siguiente forma que se dibujará
+//- se dibuja la figura ya sea un tetromino nuevo o sea el mismo tetromino con la funcion draw()
+
   //move left and prevent collisions with shapes moving left
   function moveright() {
     undraw()
@@ -178,6 +187,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     draw()
   }
+
+// el movimiento de izquierda se verifica mediante la tecla de flecha de izquierda del teclado con codigo 37, primero lo elimina las clases a los divs con la funcion undraw
+//- se pregunta si el componente de tetromino se encuentra en el borde de la izquierda
+//- por si: no realiza ningun movimiento
+//- por no: le resta una unidad a la posicion actual
+//- tambien se pregunta si el bloque de de alguno de los bloques actuales tiene la clase block2 que es la clase en donde se encuentra un bloque ya posionada, si ese es el //caso, se procede a obtener un nuevo tetromino que se lo obtiene de una lista y el index se aumenta en 1 para encontrar la siguiente forma que se dibujará
+//- se dibuja la figura ya sea un tetromino nuevo o sea el mismo tetromino con la funcion draw()
+
 
   //move right and prevent collisions with shapes moving right
   function moveleft() {
